@@ -28,9 +28,6 @@ export class NavComponent {
       next:()=>{
 
         this.router.navigateByUrl('/members')
-      },
-      error:error=>{
-       this.toastr.error(error.error)
       }
     })
 
