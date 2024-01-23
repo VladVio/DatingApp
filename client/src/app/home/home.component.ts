@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   registerMode=false;
-
+  users:any
   constructor(){
 
   }
@@ -17,7 +17,7 @@ export class HomeComponent {
   registerToggle(){
     this.registerMode=!this.registerMode
   }
-  
+
   cancelRegisterMode(event:boolean){
     this.registerMode=event;
   }
