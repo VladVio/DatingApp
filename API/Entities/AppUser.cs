@@ -25,4 +25,6 @@ public class AppUser
     // public int GetAge(){
     //     return DateOfBirth.CalculateAge();
     // }
+    public List<Message> MessagesSent{get;set;}
+    public List<Message> MessagesReceived {get;set;}
 }

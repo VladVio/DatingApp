@@ -42,6 +42,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     PhotoEditorComponent,
     TextInputsComponent,
     DatePickerComponent
+
   ],
   imports: [
     BrowserModule,
