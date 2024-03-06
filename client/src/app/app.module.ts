@@ -25,6 +25,12 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { TextInputsComponent } from './_forms/text-inputs/text-inputs.component';
 import DatePickerComponent from './_forms/date-picker/date-picker.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { HasRoleDirective } from './_directives/has-role.directive';
+import { UserManagementComponent } from './admin/user-management/user-management.component';
+import { PhotoManagementComponent } from './admin/photo-management/photo-management.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { RolesModalComponent } from './modals/roles-modal/roles-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +47,12 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     MemberEditComponent,
     PhotoEditorComponent,
     TextInputsComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    AdminPanelComponent,
+    HasRoleDirective,
+    UserManagementComponent,
+    PhotoManagementComponent,
+    RolesModalComponent
 
   ],
   imports: [
@@ -52,7 +63,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
