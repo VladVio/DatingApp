@@ -10,24 +10,20 @@ import { MessageService } from 'src/app/_services/message.service';
   standalone: true,
   templateUrl: './member-messages.component.html',
   styleUrls: ['./member-messages.component.css'],
-  imports: [CommonModule, TimeagoModule,FormsModule]
+  imports: [CommonModule, TimeagoModule, FormsModule]
 })
 export class MemberMessagesComponent {
-  @ViewChild('messageForm') messageForm?:NgForm;
+  @ViewChild('messageForm') messageForm?: NgForm;
   @Input() username?: string;
-  @Input() messages: Message[] = [];
   messageContent = ''
-  constructor(private messageService: MessageService) { }
+  constructor(public messageService: MessageService) { }
   ngOnInit(): void {
   }
 
-  sendMessage() {
+  sendMessages() {
     if (!this.username) return;
-    this.messageService.sendMessage(this.username, this.messageContent).subscribe({
-      next: message => {
-        this.messages.push(message)
-        this.messageForm?.reset();
-      }
+    this.messageService.sendMessages(this.username, this.messageContent)?.then(() => {
+      this.messageForm?.reset();
     })
   }
 }
