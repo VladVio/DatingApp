@@ -33,6 +33,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { RolesModalComponent } from './modals/roles-modal/roles-modal.component';
 import { RouteReuseStrategy } from '@angular/router';
 import { CustomRouteReuseStrategy } from './_services/customRouteReuseStrategy';
+import { ConfirmDialogComponent } from './modals/confirm-dialog/confirm-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,9 @@ import { CustomRouteReuseStrategy } from './_services/customRouteReuseStrategy';
     HasRoleDirective,
     UserManagementComponent,
     PhotoManagementComponent,
-    RolesModalComponent
+    RolesModalComponent,
+    ConfirmDialogComponent
+
 
   ],
   imports: [
@@ -67,12 +70,14 @@ import { CustomRouteReuseStrategy } from './_services/customRouteReuseStrategy';
     SharedModule,
     BsDatepickerModule.forRoot(),
     ModalModule.forRoot()
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-    { provide: RouteReuseStrategy, useClass: LoadingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+    /*{ provide: RouteReuseStrategy, useClass: CustomRouteReuseStrategy, multi: true }*/
+
 
   ],
   bootstrap: [AppComponent]
